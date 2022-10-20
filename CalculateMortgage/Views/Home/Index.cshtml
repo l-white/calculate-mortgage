@@ -1,0 +1,35 @@
+﻿@model CalculateMortgageModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Name: @ViewBag.Name</p>
+    <p>Value: @ViewBag.FV.ToString("C2")</p>-->
+    <form asp-action="Index">
+        <div>
+            <label asp-for="LoanAmount">Loan Amount:</label>
+            <input asp-for="LoanAmount" />
+        </div>
+        <div>
+            <label asp-for="Rate">Interest Rate:</label>
+            <input asp-for="Rate" />
+        </div>
+        <div>
+            <label asp-for="PropertyTaxRate">Property Tax Rate:</label>
+            <input asp-for="PropertyTaxRate" />
+        </div>
+        <div>
+            <label asp-for="Months">Years:</label>
+            <input asp-for="Months" />
+        </div>
+        <div>
+            <label><strong>Monthly Payment: </strong></label>
+            <input value="@ViewBag.FV.ToString("C2")" readonly />
+        </div>
+        <button type="submit">Calculate</button>
+        <a asp-action="Index">Clear</a>
+    </form>
+</div>
